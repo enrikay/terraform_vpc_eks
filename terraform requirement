@@ -1,0 +1,31 @@
+Terraform Requirement
+
+	- AWS Account
+	- IAM user with Access Keys
+		- give adminstrative users
+	- Terraform launch file : instance.tf 
+		- Download terraform to your operating system
+		- Install AWS cli
+		- Define your access key with AWS cli
+
+	- S3 bucket to keep the statefile centrally
+	- Launch interface/console (AWS cli)
+		- SCRIPT: Terraform apply
+
+
+ 	WOrkflow:
+
+ - Open AWS Cli
+ - From AWS CLi, configure your Access Keys,region and format
+ - Script : 
+ 	- Make a terraform directory
+ 	- 'terraform help' to check if terraform is configured
+
+
+
+ -Script
+ 	- terraform init
+ 	- terraform validate : synthax check
+ 	- terraform fmt : format your synthax
+ 	- terraform plan: shows you changes you're about to make
+ 	- terraforma apply
