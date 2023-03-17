@@ -1,0 +1,35 @@
+AWS VPC resources
+
+	-VPC
+	-Subnets
+		-Private
+			Private subnet route table will send the traffic to Nat gateway.
+
+		-Public
+			Public subnet, route table will tell the traffic to go to Internet gateway
+
+	-Route Table (traffic rule and route with resources in the subnets)
+				-Attached to each subnets
+
+	-NAT (Private Subnet to access internet resources)
+
+	-Internet Gateway (interent connection with resources in the VPC)
+
+
+
+Region: us-west-2
+VPC Range: 10.0.0.0/16
+4 Subnets: 2 Public Subnets,  2 Private Subnets
+2 Zones: us-west-1a, us-west-1b
+Subnets 
+	10.0.1.0/24 => Pub-sub-1 [us-west-2a]
+	10.0.2.0/24 => Pub-sub-2 [us-west-2b]
+	10.0.3.0/24 => Pri-sub-1 [us-west-2a]
+	10.0.4.0/24 => Pri-sub-2 [us-west-2b]
+
+1 Internet Gateway
+2 NAT Gateway distributed to for each zone
+1 Elastic IP adddress
+2 Route Tables: For each private and public subnets
+1 Bastion Host in the Public Subnet
+

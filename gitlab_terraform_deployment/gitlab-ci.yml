@@ -1,0 +1,38 @@
+
+
+variables:
+  TF_VAR_ACCESS_KEY: ${AWS_ACCESS_KEY}
+  TF_VAR_SECRET_KEY: ${AWS_SECRET_ACCESS_KEY}
+  TF_VAR_AWS_REGION: ${AWS_DEFAULT_REGION}
+  TF_ROOT: terraform
+  TF_CACHE_KEY: default
+  TF_STATE_NAME: default
+ 
+before_script:
+    - terraform init
+  
+cache:
+  paths:
+    - .terraform
+
+
+stages:
+  - provision
+  #- destroy
+
+
+
+provision:
+  tags:
+    - rr
+  stage: provision
+  script:
+    - terraform plan
+    - touch aa.terraform
+    - terraform plan -out aa.terraform
+    - terraform apply aa.terraform
+    - terraform destroy -auto-approve
+    #- terraform apply config.plan
+  only:
+    - master
+ 
