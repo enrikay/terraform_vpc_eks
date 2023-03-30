@@ -1,4 +1,4 @@
-name: Terraform AWS Workflow
+name: Terraform Destroy
 
 on:
   workflow_dispatch:
@@ -31,6 +31,14 @@ jobs:
         aws-region: us-west-2 
     - name: Setup Terraform CLI
       uses: hashicorp/setup-terraform@v2.0.2
+      
+    - name: Terraform init, plan and apply
+      run: |
+        echo `pwd`
+        echo "tfpath ${{ github.event.inputs.tfpath }}"
+        echo "** Running Terraform Init**"
+        terraform init
+        
 
     - name: Terraform Destroy
       run: |
