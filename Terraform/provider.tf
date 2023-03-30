@@ -1,5 +1,3 @@
-
-
 # Set the AWS region and profile
 
 provider "aws" {
