@@ -42,7 +42,7 @@ resource "aws_eks_node_group" "cluster_Node" {
 
 
   scaling_config {
-    desired_size = 1
+    desired_size = 2
     max_size     = 2
     min_size     = 1
   }
@@ -53,7 +53,7 @@ resource "aws_eks_node_group" "cluster_Node" {
 
 
   ami_type       = "AL2_x86_64"
-  instance_types = ["t3.micro"]
+  instance_types = ["t3.medium"]
   capacity_type  = "ON_DEMAND"
   disk_size      = 20
 
